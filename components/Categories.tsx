@@ -1,5 +1,25 @@
 import Image from "next/image";
+import { Cinzel } from "next/font/google";
+import { Poppins } from "next/font/google";
+import { DynaPuff } from "next/font/google";
+import { Orbitron } from "next/font/google";
 
+const dynaPuff = DynaPuff({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   weight: ["400", "600", "700", "800"],
+// });
+// const cinzel = Cinzel({
+//   subsets: ["latin"],
+// });
+
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+});
 const categories = [
   {
     name: "Anime Figures",
@@ -31,7 +51,9 @@ export default function Categories() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="mb-16 text-center">
-        <h2 className="text-5xl font-black">
+        <h2
+          className={`${orbitron.className} text-5xl font-black tracking-wider`}
+        >
           Shop By Category
         </h2>
 
@@ -58,8 +80,10 @@ export default function Categories() {
             </div>
 
             <div className="p-6">
-              <h3 className="text-2xl font-bold">
-                {category.name}
+              <h3
+                className={`${orbitron.className} text-2xl font-bold tracking-wide`}
+              >
+               {category.name}
               </h3>
 
               <p className="mt-2 text-slate-400">
