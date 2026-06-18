@@ -24,14 +24,6 @@ return ( <main className="min-h-screen bg-gray-50"> <div className="mx-auto max-
 
     {/* Brand Header */}
     <div className="mb-12 text-center">
-      <Link
-        href="/"
-         className={`${orbitron.className} inline-block text-5xl font-black tracking-widest transition hover:scale-105 md:text-7xl`}
->
-          <span className="text-black">KRAZZY</span>
-          <span className="text-orange-500"> KHILONE</span>
-      </Link>
-
       <p className="mt-4 uppercase tracking-[6px] text-orange-500">
         Premium Collectibles Store
       </p>

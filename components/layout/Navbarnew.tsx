@@ -37,10 +37,10 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="/shop"
+            href="/Events"
             className="font-medium text-gray-700 transition hover:text-orange-500"
           >
-            Shop
+            Events
           </Link>
 
           <div className="group relative">
