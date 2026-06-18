@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { Cinzel } from "next/font/google";
 import { Poppins } from "next/font/google";
@@ -24,26 +25,32 @@ const categories = [
   {
     name: "Anime Figures",
     image: "/images/anime.jpg",
+    slug: "anime",
   },
   {
     name: "Hot Wheels",
     image: "/images/hotwheels.png",
+    slug: "hotwheels",
   },
   {
     name: "Die-Cast Models",
     image: "/images/diecast.png",
+    slug: "diecast",
   },
   {
     name: "K-Pop",
     image: "/images/kpop.png",
+    slug: "kpop",
   },
   {
     name: "Return Gifts",
     image: "/images/returngifts.png",
+    slug: "return-gifts",
   },
   {
     name: "School Accessories",
     image: "/images/school.png",
+    slug: "school",
   },
 ];
 
@@ -64,10 +71,12 @@ export default function Categories() {
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((category) => (
-          <div
+          <Link
             key={category.name}
-            className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-orange-500"
+            href={`/categories/${category.slug}`}
           >
+            <div className="group overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:border-orange-500"></div>
+          
             <div className="relative h-64 overflow-hidden">
               <Image
                 src={category.image}
@@ -94,7 +103,7 @@ export default function Categories() {
                 Explore Collection
               </button>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function FeaturedProducts() {
           <Link
             href={`/products/${product.id}`}
             key={product.id}
-            className="group block overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 transition-all duration-300 hover:-translate-y-2 hover:border-orange-500"
+            className="group overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:border-orange-500"
           >
             <div className="relative h-64">
               <Image
