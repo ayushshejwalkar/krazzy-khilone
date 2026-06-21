@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  products  Product[]
+  createdAt DateTime  @default(now())
+}
+
+model Product {
+  id          String   @id @default(cuid())
+
+  name        String
+  slug        String   @unique
+
+  description String?
+
+  price       Float
+  stock       Int      @default(0)
+
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
+
+  featured    Boolean  @default(false)
+
+  images      ProductImage[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  imageUrl  String
+
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  location    String?
+  eventDate   DateTime
+  banner      String?
+
+  createdAt   DateTime @default(now())
+}
+
+model Offer {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  discount    Int
+
+  startDate   DateTime
+  endDate     DateTime
+
+  createdAt   DateTime @default(now())
+}

@@ -5,29 +5,34 @@ import Footer from "@/components/layout/footer";
 import "./globals.css";
 
 const geistSans = Geist({
-variable: "--font-geist-sans",
-subsets: ["latin"],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-variable: "--font-geist-mono",
-subsets: ["latin"],
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-title: "Krazzy Khilone",
-description: "Anime Figures, Hot Wheels, K-Pop & Collectibles",
+  title: "Krazzy Khilone",
+  description: "Anime Figures, Hot Wheels, K-Pop & Collectibles",
 };
 
 export default function RootLayout({
-children,
+  children,
 }: Readonly<{
-children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-return ( <html lang="en">
-<body
-className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-> <Navbar />
-{children} <Footer /> </body> </html>
-);
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
 }
